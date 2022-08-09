@@ -24,6 +24,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard', [TaskController::class, 'list'])->middleware(['auth'])->name('dashboard');
 Route::get('/dashboard/edit/{id?}', [TaskController::class, 'edit'])->middleware(['auth'])->name('dashboard');
-Route::view('/dashboard/add', 'add');
+Route::view('/dashboard/add', 'add')->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
